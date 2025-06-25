@@ -18,8 +18,8 @@ def str_to_int_set(val: str) -> Set[int]:
 class Var:
 
     # Telegram API credentials
-    API_ID: int = int(os.getenv("API_ID", ""))
-    API_HASH: str = os.getenv("API_HASH", "")
+    API_ID: int = int(os.getenv("API_ID", "7515868"))
+    API_HASH: str = os.getenv("API_HASH", "dbd251e9ad4883b0443cc82b618ac6fa")
     BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
     
     if not all([API_ID, API_HASH, BOT_TOKEN]):
@@ -27,13 +27,13 @@ class Var:
         raise ValueError("Missing required Telegram API configuration")
 
     # Bot identity and performance
-    NAME: str = os.getenv("NAME", "ThunderF2L")
+    NAME: str = os.getenv("NAME", "ARYABROF2L")
     SLEEP_THRESHOLD: int = int(os.getenv("SLEEP_THRESHOLD", "30"))
     WORKERS: int = int(os.getenv("WORKERS", "100"))
     TIMEOUT: int = int(os.getenv("TIMEOUT", "90"))
 
     # Channel for file storage
-    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "0"))
+    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "-1002456481410"))
     if not BIN_CHANNEL:
         logger.critical("BIN_CHANNEL is required")
         raise ValueError("BIN_CHANNEL is required")
@@ -46,10 +46,10 @@ class Var:
     CACHE_SIZE: int = int(os.getenv("CACHE_SIZE", "100"))
     
     # Owner details
-    OWNER_ID: List[int] = str_to_int_list(os.getenv("OWNER_ID", ""))
+    OWNER_ID: List[int] = str_to_int_list(os.getenv("OWNER_ID", "6081617163"))
     if not OWNER_ID:
         logger.warning("WARNING: OWNER_ID is empty. No user will have admin access.")
-    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "")
+    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "@Arya_Bro_Bot")
     
     # Domain and URL configuration
     FQDN: str = os.getenv("FQDN", "") or BIND_ADDRESS
@@ -59,7 +59,7 @@ class Var:
     URL: str = f"{PROTOCOL}://{FQDN}{PORT_SEGMENT}/"
     
     # Database configuration
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "mongodb+srv://AnimeCosmo:AnimeCosmo@cluster0.u6rpl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     if not DATABASE_URL:
         logger.critical("DATABASE_URL is required")
         raise ValueError("DATABASE_URL is required")
@@ -72,7 +72,7 @@ class Var:
 
     # Force channel configuration
     FORCE_CHANNEL_ID: Optional[int] = None
-    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "").strip()
+    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "-1002456481410").strip()
     if force_channel_env:
         try:
             FORCE_CHANNEL_ID = int(force_channel_env)
